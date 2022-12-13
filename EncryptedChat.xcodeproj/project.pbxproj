@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330D294831B500B840AE /* AppDelegate.swift */; };
 		7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330F294831B500B840AE /* SceneDelegate.swift */; };
-		7DF43312294831B500B840AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF43311294831B500B840AE /* ViewController.swift */; };
-		7DF43315294831B500B840AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF43313294831B500B840AE /* Main.storyboard */; };
+		7DF43312294831B500B840AE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF43311294831B500B840AE /* LogInViewController.swift */; };
 		7DF43317294831B600B840AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DF43316294831B600B840AE /* Assets.xcassets */; };
 		7DF4331A294831B600B840AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DF43318294831B600B840AE /* LaunchScreen.storyboard */; };
+		7DF433232948333600B840AE /* StreamChat in Frameworks */ = {isa = PBXBuildFile; productRef = 7DF433222948333600B840AE /* StreamChat */; };
+		7DF433252948333600B840AE /* StreamChatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7DF433242948333600B840AE /* StreamChatUI */; };
+		7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4332B2948351C00B840AE /* ChatManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DF4330A294831B500B840AE /* EncryptedChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptedChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF4330D294831B500B840AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF4330F294831B500B840AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7DF43311294831B500B840AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7DF43314294831B500B840AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7DF43311294831B500B840AE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		7DF43316294831B600B840AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DF43319294831B600B840AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF4331B294831B600B840AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DF4332B2948351C00B840AE /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF433252948333600B840AE /* StreamChatUI in Frameworks */,
+				7DF433232948333600B840AE /* StreamChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +60,55 @@
 		7DF4330C294831B500B840AE /* EncryptedChat */ = {
 			isa = PBXGroup;
 			children = (
-				7DF4330D294831B500B840AE /* AppDelegate.swift */,
-				7DF4330F294831B500B840AE /* SceneDelegate.swift */,
-				7DF43311294831B500B840AE /* ViewController.swift */,
-				7DF43313294831B500B840AE /* Main.storyboard */,
-				7DF43316294831B600B840AE /* Assets.xcassets */,
-				7DF43318294831B600B840AE /* LaunchScreen.storyboard */,
+				7DF4332A2948343500B840AE /* Others */,
+				7DF433292948342600B840AE /* Managers */,
+				7DF433282948341E00B840AE /* Models */,
+				7DF433272948341900B840AE /* Views */,
+				7DF433262948340E00B840AE /* Controllers */,
 				7DF4331B294831B600B840AE /* Info.plist */,
 			);
 			path = EncryptedChat;
+			sourceTree = "<group>";
+		};
+		7DF433262948340E00B840AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DF43311294831B500B840AE /* LogInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7DF433272948341900B840AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7DF433282948341E00B840AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7DF433292948342600B840AE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7DF4332B2948351C00B840AE /* ChatManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		7DF4332A2948343500B840AE /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				7DF4330D294831B500B840AE /* AppDelegate.swift */,
+				7DF4330F294831B500B840AE /* SceneDelegate.swift */,
+				7DF43316294831B600B840AE /* Assets.xcassets */,
+				7DF43318294831B600B840AE /* LaunchScreen.storyboard */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +127,10 @@
 			dependencies = (
 			);
 			name = EncryptedChat;
+			packageProductDependencies = (
+				7DF433222948333600B840AE /* StreamChat */,
+				7DF433242948333600B840AE /* StreamChatUI */,
+			);
 			productName = EncryptedChat;
 			productReference = 7DF4330A294831B500B840AE /* EncryptedChat.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 7DF43301294831B500B840AE;
+			packageReferences = (
+				7DF433212948333600B840AE /* XCRemoteSwiftPackageReference "stream-chat-swift" */,
+			);
 			productRefGroup = 7DF4330B294831B500B840AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +178,6 @@
 			files = (
 				7DF4331A294831B600B840AE /* LaunchScreen.storyboard in Resources */,
 				7DF43317294831B600B840AE /* Assets.xcassets in Resources */,
-				7DF43315294831B500B840AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +188,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DF43312294831B500B840AE /* ViewController.swift in Sources */,
+				7DF43312294831B500B840AE /* LogInViewController.swift in Sources */,
 				7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */,
 				7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */,
+				7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7DF43313294831B500B840AE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DF43314294831B500B840AE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7DF43318294831B600B840AE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +335,6 @@
 				INFOPLIST_FILE = EncryptedChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +362,6 @@
 				INFOPLIST_FILE = EncryptedChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +399,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7DF433212948333600B840AE /* XCRemoteSwiftPackageReference "stream-chat-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getstream/stream-chat-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7DF433222948333600B840AE /* StreamChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DF433212948333600B840AE /* XCRemoteSwiftPackageReference "stream-chat-swift" */;
+			productName = StreamChat;
+		};
+		7DF433242948333600B840AE /* StreamChatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DF433212948333600B840AE /* XCRemoteSwiftPackageReference "stream-chat-swift" */;
+			productName = StreamChatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7DF43302294831B500B840AE /* Project object */;
 }
