@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import StreamChat
+import StreamChatUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,10 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let viewController = LogInViewController()
-        window.rootViewController = UINavigationController(rootViewController: viewController)
+        window.rootViewController = UINavigationController(rootViewController: LogInViewController())
         window.makeKeyAndVisible()
+        window.tintColor = .systemPink
         self.window = window
+        
+        Appearance.default.fonts.body = .preferredFont(forTextStyle: .body)
+        Appearance.default.images.sendArrow = UIImage(systemName: "arrowshape.right.fill")!
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

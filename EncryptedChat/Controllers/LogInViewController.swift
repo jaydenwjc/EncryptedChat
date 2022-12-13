@@ -49,6 +49,10 @@ final class LogInViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         usernameTextField.becomeFirstResponder()
+        
+//        if ChatManager.shared.isLoggedIn {
+//            presentChatList(animated: false)
+//        }
     }
     
     private func addConstraints() {
@@ -67,16 +71,24 @@ final class LogInViewController: UIViewController {
     @objc private func didTapLogIn() {
         usernameTextField.resignFirstResponder()
         guard let text = usernameTextField.text, !text.isEmpty else {
-            let alert = UIAlertController(title: "Login Failed", message: "Username cannot be empty", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Login Failed",
+                                          message: "Username cannot be empty",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok",
+                                          style: .default,
+                                          handler: nil))
             self.present(alert, animated: true)
             return
         }
         
         ChatManager.shared.logIn(with: text) { [weak self] success in
             guard success else {
-                let alert = UIAlertController(title: "Login Failed", message: "Invalid username", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                let alert = UIAlertController(title: "Login Failed",
+                                              message: "Invalid username",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok",
+                                              style: .default,
+                                              handler: nil))
                 self?.present(alert, animated: true)
                 self?.usernameTextField.text = ""
                 return
@@ -87,8 +99,50 @@ final class LogInViewController: UIViewController {
         }
     }
     
-    func presentChatList() {
-//        print("Show chat list")
+    func presentChatList(animated: Bool = true) {
+        guard let vc = ChatManager.shared.createChannelList() else { return }
+        
+        let createChannel = UIBarButtonItem(barButtonSystemItem: .compose,
+                                                               target: self,
+                                                               action: #selector(didTapCompose))
+        let createDM = UIBarButtonItem(barButtonSystemItem: .add,
+                                                               target: self,
+                                                               action: #selector(didTapAdd))
+        vc.navigationItem.rightBarButtonItems = [createDM, createChannel]
+        let tabVC = TabBarViewController(chatList: vc)
+        tabVC.modalPresentationStyle = .fullScreen
+        
+        present(tabVC, animated: animated)
+    }
+    
+    @objc private func didTapCompose() {
+        let alert = UIAlertController(title: "New Chat",
+                                      message: "Please enter channel name",
+                                      preferredStyle: .alert)
+        presentedViewController?.present(alert, animated: true)
+        alert.addTextField()
+        alert.addAction(.init(title: "Cancel", style: .cancel))
+        alert.addAction(.init(title: "Create", style: .default, handler: { _ in
+            guard let text = alert.textFields?.first?.text, !text.isEmpty else {
+//                let alert = UIAlertController(title: "Create Chat Channel Failed",
+//                                              message: "Channel name cannot be empty",
+//                                              preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok",
+//                                              style: .default,
+//                                              handler: nil))
+//                self.present(alert, animated: true)
+                return
+            }
+            DispatchQueue.main.async {
+                ChatManager.shared.createNewChannel(name: text)
+            }
+        }))
+    }
+    
+    @objc private func didTapAdd() {
+        DispatchQueue.main.async {
+            ChatManager.shared.createNewDM()
+        }
     }
 }
 

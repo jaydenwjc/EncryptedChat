@@ -18,8 +18,8 @@ final class ChatManager {
     private let tokens = [
         "alice": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWxpY2UifQ.1TM2hpOF7E0-BX50SdjsCur22x60oodiPOiHlMIPh_c",
         "bob": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYm9iIn0.lwAUH91HASzKiy2mLSmbcGzi34_LwXkZhgxE1D4RRW8",
-        "coco": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY29jbyJ9.U_Uo8J-XJKfEyCgjO97ok60n26EJL5y4oVg1frAtqQE",
-        "jayden": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamF5ZGVuIn0.woMqlRC9pI1GSQfCnY-BOuBxWKzD81PcldnIBC8Dzls"
+//        "coco": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY29jbyJ9.U_Uo8J-XJKfEyCgjO97ok60n26EJL5y4oVg1frAtqQE",
+//        "jayden": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamF5ZGVuIn0.woMqlRC9pI1GSQfCnY-BOuBxWKzD81PcldnIBC8Dzls"
     ]
     
     func setUp() {
@@ -35,10 +35,9 @@ final class ChatManager {
             completion(false)
             return
         }
-        
         client.connectUser(
             // imageURL: "https://bit.ly/2TIt8NR"
-            userInfo: UserInfo(id: username, name: username),
+            userInfo: .init(id: username),
             token: Token(stringLiteral: token)
         ) { error in
             completion(error == nil)
@@ -60,11 +59,44 @@ final class ChatManager {
     
     // ChannelList
     
-    public func createChannelList() -> UIViewController {
-        return UIViewController()
+    public func createChannelList() -> UIViewController? {
+        guard let userId = currentUser else { return nil }
+        let channelList = client.channelListController(query: .init(filter: .containMembers(userIds: [userId])))
+        
+        let vc = ChatChannelListVC()
+        vc.content = channelList
+        
+        channelList.synchronize()
+        return vc
     }
     
     public func createNewChannel(name: String) {
+        guard let current = currentUser else {
+            return
+        }
         
+        let keys: [String] = tokens.keys.filter({ $0 != current }).map { $0 }
+        do {
+            let result = try client.channelController(
+                createChannelWithId: .init(type: .messaging, id: name),
+                name: name,
+                members: Set(keys),
+                isCurrentUserMember: true
+            )
+            result.synchronize()
+        } catch {
+            print("error")
+        }
+    }
+    
+    public func createNewDM() {
+        let users: [String] = tokens.keys.map{$0}
+        
+        do {
+            let result = try client.channelController(createDirectMessageChannelWith: Set(users), extraData: [:])
+            result.synchronize()
+        } catch {
+            print("error")
+        }
     }
 }

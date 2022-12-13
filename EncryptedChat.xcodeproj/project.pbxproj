@@ -15,6 +15,8 @@
 		7DF433232948333600B840AE /* StreamChat in Frameworks */ = {isa = PBXBuildFile; productRef = 7DF433222948333600B840AE /* StreamChat */; };
 		7DF433252948333600B840AE /* StreamChatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7DF433242948333600B840AE /* StreamChatUI */; };
 		7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4332B2948351C00B840AE /* ChatManager.swift */; };
+		7DF4332F29484CF900B840AE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4332E29484CF900B840AE /* TabBarViewController.swift */; };
+		7DF4333129484D6900B840AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4333029484D6900B840AE /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		7DF43319294831B600B840AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DF4331B294831B600B840AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DF4332B2948351C00B840AE /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		7DF4332E29484CF900B840AE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7DF4333029484D6900B840AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				7DF43311294831B500B840AE /* LogInViewController.swift */,
+				7DF4333029484D6900B840AE /* SettingsViewController.swift */,
+				7DF4332E29484CF900B840AE /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,7 +197,9 @@
 				7DF43312294831B500B840AE /* LogInViewController.swift in Sources */,
 				7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */,
 				7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */,
+				7DF4332F29484CF900B840AE /* TabBarViewController.swift in Sources */,
 				7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */,
+				7DF4333129484D6900B840AE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
