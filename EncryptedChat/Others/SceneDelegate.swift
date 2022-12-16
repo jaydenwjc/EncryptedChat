@@ -29,6 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Appearance.default.fonts.body = .preferredFont(forTextStyle: .body)
         Appearance.default.images.sendArrow = UIImage(systemName: "arrowshape.right.fill")!
 
+        Components.default.messageComposerView = EncryptedMessageComposerView.self
+        Components.default.messageComposerVC = EncryptedMessageComposerVC.self
+        Components.default.messageLayoutOptionsResolver = EncryptedMessageLayoutOptionsResolver()
+        Components.default.messageContentView = EncryptedMessageContentView.self
+        Components.default.messageActionsVC = EncryptedMessageActionsVC.self
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

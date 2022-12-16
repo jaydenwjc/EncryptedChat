@@ -9,17 +9,27 @@ import Foundation
 import StreamChat
 import StreamChatUI
 import UIKit
+import CryptoKit
 
 final class ChatManager {
     static let shared = ChatManager()
     
     private var client: ChatClient!
     
+    private var privateKey: P256.KeyAgreement.PrivateKey!
+    
+    public var symmetricKey: SymmetricKey!
+    
     private let tokens = [
-        "alice": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWxpY2UifQ.1TM2hpOF7E0-BX50SdjsCur22x60oodiPOiHlMIPh_c",
-        "bob": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYm9iIn0.lwAUH91HASzKiy2mLSmbcGzi34_LwXkZhgxE1D4RRW8",
+//        "alice": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYWxpY2UifQ.1TM2hpOF7E0-BX50SdjsCur22x60oodiPOiHlMIPh_c",
+//        "bob": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYm9iIn0.lwAUH91HASzKiy2mLSmbcGzi34_LwXkZhgxE1D4RRW8",
 //        "coco": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiY29jbyJ9.U_Uo8J-XJKfEyCgjO97ok60n26EJL5y4oVg1frAtqQE",
-//        "jayden": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamF5ZGVuIn0.woMqlRC9pI1GSQfCnY-BOuBxWKzD81PcldnIBC8Dzls"
+//        "jayden": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamF5ZGVuIn0.woMqlRC9pI1GSQfCnY-BOuBxWKzD81PcldnIBC8Dzls",
+//        "john": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiam9obiJ9.eyBcrR9GwKSzLSJNuWxpN791ABpHspGzMgM1FVCE2LI",
+//        "doe": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZG9lIn0._1NGQgEKvKuedZnK5erCviW0csL-wisTnq2l74x8Yc0",
+//        "james": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamFtZXMifQ.-yEw4nMnNKuDO7goWKGv_cFkrNgeHwMpU9owWeLWwGk"
+        "user1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjEifQ.X_SBaYPmyNKbahp7LLx3ZvopowbIllr3lb1ep24wG_U",
+        "user2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjIifQ.DbPxD1EOkwbsJHPz9Ou4uydARoVm8g-SDXKPD2jI3RU"
     ]
     
     func setUp() {
@@ -30,14 +40,19 @@ final class ChatManager {
     
     // Authentication
     
-    func logIn(with username: String, completion: @escaping (Bool) -> Void) {
+    func logIn(with username: String, publicKey: P256.KeyAgreement.PublicKey, privateKey: P256.KeyAgreement.PrivateKey, completion: @escaping (Bool) -> Void) {
+        self.privateKey = privateKey
         guard let token = tokens[username.lowercased()] else {
             completion(false)
             return
         }
+        
+        let exportedPublicKey = Encryption.shared.exportPublicKey(publicKey)
+        let publicKeyExtraData: [String: RawJSON] = ["publicKey": .string(exportedPublicKey)]
+        
         client.connectUser(
             // imageURL: "https://bit.ly/2TIt8NR"
-            userInfo: .init(id: username),
+            userInfo: .init(id: username, extraData: publicKeyExtraData),
             token: Token(stringLiteral: token)
         ) { error in
             completion(error == nil)
@@ -70,17 +85,16 @@ final class ChatManager {
         return vc
     }
     
-    public func createNewChannel(name: String) {
-        guard let current = currentUser else {
-            return
-        }
+    public func createNewChat(recipient: String, name: String, privateKey: P256.KeyAgreement.PrivateKey) {
+        self.privateKey = privateKey
         
-        let keys: [String] = tokens.keys.filter({ $0 != current }).map { $0 }
+        let recipient: [String] = tokens.keys.filter{$0 == recipient}.map{$0}
+        
         do {
             let result = try client.channelController(
                 createChannelWithId: .init(type: .messaging, id: name),
                 name: name,
-                members: Set(keys),
+                members: Set(recipient),
                 isCurrentUserMember: true
             )
             result.synchronize()
@@ -89,14 +103,70 @@ final class ChatManager {
         }
     }
     
-    public func createNewDM() {
-        let users: [String] = tokens.keys.map{$0}
-        
+    public func createNewDM(recipient: String, privateKey: P256.KeyAgreement.PrivateKey) {
+        self.privateKey = privateKey
+        let user: [String] = tokens.keys.filter{$0 == recipient}.map{$0}
+        print(Set(user))
         do {
-            let result = try client.channelController(createDirectMessageChannelWith: Set(users), extraData: [:])
+            let result = try client.channelController(createDirectMessageChannelWith: Set(user), extraData: [:])
             result.synchronize()
         } catch {
             print("error")
         }
+    }
+    
+    public func testing() {
+//        let symmetricKey = self.getSymmetricKey(cid: (self.channelController?.channel!.cid)!)
+//        let text = "lZX7TvVRF/q8PDGOjbCnXssr7atfAI8N/oN3wQ=="
+//        let decrypted = Encryption.shared.decrypt(text: text, symmetricKey: symmetricKey)
+//        print(text)
+        
+        
+    }
+    
+    public func deleteChannel(name: String) {
+        let controller = client.channelController(for: .init(type: .messaging, id: name))
+        controller.deleteChannel { error in
+            if let error = error {
+                // handle error
+                print(error)
+            }
+        }
+        controller.synchronize()
+    }
+    
+    public func getSymmetricKey(cid: ChannelId) -> SymmetricKey {
+        var symmetricKey: SymmetricKey!
+        let sender: String = currentUser!
+        let recipientId = tokens.keys.filter{$0 != sender}.map{$0}.joined()
+        let recipient = client.userController(userId: recipientId)
+        recipient.synchronize()
+        let recipientPublicKey = (recipient.user?.extraData["publicKey"]?.stringValue)!
+        do {
+            let importedRecipientPublicKey = try Encryption.shared.importPublicKey(recipientPublicKey)
+            let derivedKey = try Encryption.shared.deriveSymmetricKey(privateKey: self.privateKey, publicKey: importedRecipientPublicKey)
+            symmetricKey = derivedKey
+        } catch {
+            print("error")
+        }
+        return symmetricKey
+    }
+    
+    public func getRecipient(cid: ChannelId) -> ChatUser {
+        let sender: String = currentUser!
+        var recipient: ChatUser!
+        let channelController = client.channelController(for: cid)
+        channelController.synchronize()
+        let membersController = channelController.client.memberListController(query: .init(cid: cid))
+        membersController.synchronize()
+        print(membersController.members.first{$0.name != sender}?.name)
+        let user = channelController.client.userController(userId: (membersController.members.first{$0.name != sender}?.name)!)
+        user.synchronize()
+        recipient = user.user!
+        
+       
+//        print(membersController.members.count)
+        
+        return recipient
     }
 }

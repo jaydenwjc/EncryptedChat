@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D83CCC2294BD58A0071DA84 /* EncryptedMessageComposerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCC1294BD58A0071DA84 /* EncryptedMessageComposerVC.swift */; };
+		7D83CCC7294BE3AA0071DA84 /* EncryptedMessageLayoutOptionsResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCC6294BE3AA0071DA84 /* EncryptedMessageLayoutOptionsResolver.swift */; };
+		7D83CCC9294BE5A70071DA84 /* EncryptedMessageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCC8294BE5A70071DA84 /* EncryptedMessageContentView.swift */; };
+		7D83CCCB294BEA710071DA84 /* EncryptedMessageActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCCA294BEA710071DA84 /* EncryptedMessageActionsVC.swift */; };
+		7D83CCCD294C084E0071DA84 /* EncryptedMessageComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCCC294C084E0071DA84 /* EncryptedMessageComposerView.swift */; };
+		7D83CCD1294C0A610071DA84 /* SendEncryptedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */; };
 		7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330D294831B500B840AE /* AppDelegate.swift */; };
 		7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330F294831B500B840AE /* SceneDelegate.swift */; };
 		7DF43312294831B500B840AE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF43311294831B500B840AE /* LogInViewController.swift */; };
@@ -17,9 +23,16 @@
 		7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4332B2948351C00B840AE /* ChatManager.swift */; };
 		7DF4332F29484CF900B840AE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4332E29484CF900B840AE /* TabBarViewController.swift */; };
 		7DF4333129484D6900B840AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4333029484D6900B840AE /* SettingsViewController.swift */; };
+		7DF4333429492FC800B840AE /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4333329492FC800B840AE /* Encryption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D83CCC1294BD58A0071DA84 /* EncryptedMessageComposerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageComposerVC.swift; sourceTree = "<group>"; };
+		7D83CCC6294BE3AA0071DA84 /* EncryptedMessageLayoutOptionsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageLayoutOptionsResolver.swift; sourceTree = "<group>"; };
+		7D83CCC8294BE5A70071DA84 /* EncryptedMessageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageContentView.swift; sourceTree = "<group>"; };
+		7D83CCCA294BEA710071DA84 /* EncryptedMessageActionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageActionsVC.swift; sourceTree = "<group>"; };
+		7D83CCCC294C084E0071DA84 /* EncryptedMessageComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageComposerView.swift; sourceTree = "<group>"; };
+		7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEncryptedButton.swift; sourceTree = "<group>"; };
 		7DF4330A294831B500B840AE /* EncryptedChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptedChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF4330D294831B500B840AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF4330F294831B500B840AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +43,7 @@
 		7DF4332B2948351C00B840AE /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		7DF4332E29484CF900B840AE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7DF4333029484D6900B840AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7DF4333329492FC800B840AE /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D83CCC3294BE2960071DA84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7DF43301294831B500B840AE = {
 			isa = PBXGroup;
 			children = (
@@ -64,10 +85,12 @@
 		7DF4330C294831B500B840AE /* EncryptedChat */ = {
 			isa = PBXGroup;
 			children = (
+				7DF4333229492F7300B840AE /* Encryption */,
 				7DF4332A2948343500B840AE /* Others */,
 				7DF433292948342600B840AE /* Managers */,
 				7DF433282948341E00B840AE /* Models */,
 				7DF433272948341900B840AE /* Views */,
+				7D83CCC3294BE2960071DA84 /* Extensions */,
 				7DF433262948340E00B840AE /* Controllers */,
 				7DF4331B294831B600B840AE /* Info.plist */,
 			);
@@ -78,8 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				7DF43311294831B500B840AE /* LogInViewController.swift */,
-				7DF4333029484D6900B840AE /* SettingsViewController.swift */,
 				7DF4332E29484CF900B840AE /* TabBarViewController.swift */,
+				7D83CCC1294BD58A0071DA84 /* EncryptedMessageComposerVC.swift */,
+				7D83CCCC294C084E0071DA84 /* EncryptedMessageComposerView.swift */,
+				7D83CCCA294BEA710071DA84 /* EncryptedMessageActionsVC.swift */,
+				7D83CCC8294BE5A70071DA84 /* EncryptedMessageContentView.swift */,
+				7D83CCC6294BE3AA0071DA84 /* EncryptedMessageLayoutOptionsResolver.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -87,6 +114,7 @@
 		7DF433272948341900B840AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,11 +138,20 @@
 			isa = PBXGroup;
 			children = (
 				7DF4330D294831B500B840AE /* AppDelegate.swift */,
+				7DF4333029484D6900B840AE /* SettingsViewController.swift */,
 				7DF4330F294831B500B840AE /* SceneDelegate.swift */,
 				7DF43316294831B600B840AE /* Assets.xcassets */,
 				7DF43318294831B600B840AE /* LaunchScreen.storyboard */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		7DF4333229492F7300B840AE /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				7DF4333329492FC800B840AE /* Encryption.swift */,
+			);
+			path = Encryption;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,12 +231,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D83CCD1294C0A610071DA84 /* SendEncryptedButton.swift in Sources */,
 				7DF43312294831B500B840AE /* LogInViewController.swift in Sources */,
+				7D83CCC7294BE3AA0071DA84 /* EncryptedMessageLayoutOptionsResolver.swift in Sources */,
+				7D83CCCD294C084E0071DA84 /* EncryptedMessageComposerView.swift in Sources */,
 				7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */,
+				7D83CCCB294BEA710071DA84 /* EncryptedMessageActionsVC.swift in Sources */,
 				7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */,
 				7DF4332F29484CF900B840AE /* TabBarViewController.swift in Sources */,
+				7DF4333429492FC800B840AE /* Encryption.swift in Sources */,
 				7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */,
+				7D83CCC9294BE5A70071DA84 /* EncryptedMessageContentView.swift in Sources */,
 				7DF4333129484D6900B840AE /* SettingsViewController.swift in Sources */,
+				7D83CCC2294BD58A0071DA84 /* EncryptedMessageComposerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
