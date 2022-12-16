@@ -14,7 +14,7 @@ class EncryptedMessageComposerView: ComposerView {
     lazy var sendEncryptedButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "lock.icloud.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "lock.icloud"), for: .normal)
         return button
     }()
     

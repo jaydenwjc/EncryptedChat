@@ -28,8 +28,12 @@ final class ChatManager {
 //        "john": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiam9obiJ9.eyBcrR9GwKSzLSJNuWxpN791ABpHspGzMgM1FVCE2LI",
 //        "doe": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZG9lIn0._1NGQgEKvKuedZnK5erCviW0csL-wisTnq2l74x8Yc0",
 //        "james": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamFtZXMifQ.-yEw4nMnNKuDO7goWKGv_cFkrNgeHwMpU9owWeLWwGk"
-        "user1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjEifQ.X_SBaYPmyNKbahp7LLx3ZvopowbIllr3lb1ep24wG_U",
-        "user2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjIifQ.DbPxD1EOkwbsJHPz9Ou4uydARoVm8g-SDXKPD2jI3RU"
+//        "user1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjEifQ.X_SBaYPmyNKbahp7LLx3ZvopowbIllr3lb1ep24wG_U",
+//        "user2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjIifQ.DbPxD1EOkwbsJHPz9Ou4uydARoVm8g-SDXKPD2jI3RU",
+//        "testuser1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIxIn0.wGd9EsWwvS175lf2anj2_HdJ_EO92SzoCEOZ_wmErVc",
+//        "testuser2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIyIn0.hRPyJ8e8PRLSbm_I8b4Kd-sefykjFuFS_D9jJfSWdb0",
+        "jichu": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamljaHUifQ.t3Oo7VBNryUBrcqiSgW-b-rrBgMbCKLGx79UcrdMeJQ",
+        "parth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicGFydGgifQ.AqQaZ5Ya1IhzNQlZQ9BRsx-dPhZH3VraIeDdfQeEA1U"
     ]
     
     func setUp() {
@@ -115,15 +119,6 @@ final class ChatManager {
         }
     }
     
-    public func testing() {
-//        let symmetricKey = self.getSymmetricKey(cid: (self.channelController?.channel!.cid)!)
-//        let text = "lZX7TvVRF/q8PDGOjbCnXssr7atfAI8N/oN3wQ=="
-//        let decrypted = Encryption.shared.decrypt(text: text, symmetricKey: symmetricKey)
-//        print(text)
-        
-        
-    }
-    
     public func deleteChannel(name: String) {
         let controller = client.channelController(for: .init(type: .messaging, id: name))
         controller.deleteChannel { error in
@@ -151,7 +146,7 @@ final class ChatManager {
         }
         return symmetricKey
     }
-    
+    /*
     public func getRecipient(cid: ChannelId) -> ChatUser {
         let sender: String = currentUser!
         var recipient: ChatUser!
@@ -169,4 +164,5 @@ final class ChatManager {
         
         return recipient
     }
+     */
 }

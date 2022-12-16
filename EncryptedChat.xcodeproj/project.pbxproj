@@ -13,6 +13,7 @@
 		7D83CCCB294BEA710071DA84 /* EncryptedMessageActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCCA294BEA710071DA84 /* EncryptedMessageActionsVC.swift */; };
 		7D83CCCD294C084E0071DA84 /* EncryptedMessageComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCCC294C084E0071DA84 /* EncryptedMessageComposerView.swift */; };
 		7D83CCD1294C0A610071DA84 /* SendEncryptedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */; };
+		7D83CCD9294D1D470071DA84 /* ChatMessageLayoutOption+pinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D83CCD8294D1D470071DA84 /* ChatMessageLayoutOption+pinInfo.swift */; };
 		7DF4330E294831B500B840AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330D294831B500B840AE /* AppDelegate.swift */; };
 		7DF43310294831B500B840AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4330F294831B500B840AE /* SceneDelegate.swift */; };
 		7DF43312294831B500B840AE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF43311294831B500B840AE /* LogInViewController.swift */; };
@@ -33,6 +34,7 @@
 		7D83CCCA294BEA710071DA84 /* EncryptedMessageActionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageActionsVC.swift; sourceTree = "<group>"; };
 		7D83CCCC294C084E0071DA84 /* EncryptedMessageComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedMessageComposerView.swift; sourceTree = "<group>"; };
 		7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEncryptedButton.swift; sourceTree = "<group>"; };
+		7D83CCD8294D1D470071DA84 /* ChatMessageLayoutOption+pinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatMessageLayoutOption+pinInfo.swift"; sourceTree = "<group>"; };
 		7DF4330A294831B500B840AE /* EncryptedChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptedChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF4330D294831B500B840AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DF4330F294831B500B840AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		7D83CCC3294BE2960071DA84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7D83CCD8294D1D470071DA84 /* ChatMessageLayoutOption+pinInfo.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -100,6 +103,7 @@
 		7DF433262948340E00B840AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7DF4333029484D6900B840AE /* SettingsViewController.swift */,
 				7DF43311294831B500B840AE /* LogInViewController.swift */,
 				7DF4332E29484CF900B840AE /* TabBarViewController.swift */,
 				7D83CCC1294BD58A0071DA84 /* EncryptedMessageComposerVC.swift */,
@@ -138,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				7DF4330D294831B500B840AE /* AppDelegate.swift */,
-				7DF4333029484D6900B840AE /* SettingsViewController.swift */,
 				7DF4330F294831B500B840AE /* SceneDelegate.swift */,
 				7DF43316294831B600B840AE /* Assets.xcassets */,
 				7DF43318294831B600B840AE /* LaunchScreen.storyboard */,
@@ -241,6 +244,7 @@
 				7DF4332F29484CF900B840AE /* TabBarViewController.swift in Sources */,
 				7DF4333429492FC800B840AE /* Encryption.swift in Sources */,
 				7DF4332C2948351C00B840AE /* ChatManager.swift in Sources */,
+				7D83CCD9294D1D470071DA84 /* ChatMessageLayoutOption+pinInfo.swift in Sources */,
 				7D83CCC9294BE5A70071DA84 /* EncryptedMessageContentView.swift in Sources */,
 				7DF4333129484D6900B840AE /* SettingsViewController.swift in Sources */,
 				7D83CCC2294BD58A0071DA84 /* EncryptedMessageComposerVC.swift in Sources */,

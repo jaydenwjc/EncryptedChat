@@ -9,9 +9,6 @@ import Foundation
 import StreamChat
 import StreamChatUI
 
-extension ChatMessageLayoutOption {
-    static let pinInfo: Self = "pinInfo"
-}
 
 final class EncryptedMessageLayoutOptionsResolver: ChatMessageLayoutOptionsResolver {
     override func optionsForMessage(
