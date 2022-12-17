@@ -91,7 +91,6 @@
 				7DF4333229492F7300B840AE /* Encryption */,
 				7DF4332A2948343500B840AE /* Others */,
 				7DF433292948342600B840AE /* Managers */,
-				7DF433282948341E00B840AE /* Models */,
 				7DF433272948341900B840AE /* Views */,
 				7D83CCC3294BE2960071DA84 /* Extensions */,
 				7DF433262948340E00B840AE /* Controllers */,
@@ -121,13 +120,6 @@
 				7D83CCD0294C0A610071DA84 /* SendEncryptedButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		7DF433282948341E00B840AE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7DF433292948342600B840AE /* Managers */ = {
