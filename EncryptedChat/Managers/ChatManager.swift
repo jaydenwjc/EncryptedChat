@@ -30,10 +30,10 @@ final class ChatManager {
 //        "james": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamFtZXMifQ.-yEw4nMnNKuDO7goWKGv_cFkrNgeHwMpU9owWeLWwGk"
 //        "user1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjEifQ.X_SBaYPmyNKbahp7LLx3ZvopowbIllr3lb1ep24wG_U",
 //        "user2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjIifQ.DbPxD1EOkwbsJHPz9Ou4uydARoVm8g-SDXKPD2jI3RU",
-//        "testuser1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIxIn0.wGd9EsWwvS175lf2anj2_HdJ_EO92SzoCEOZ_wmErVc",
-//        "testuser2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIyIn0.hRPyJ8e8PRLSbm_I8b4Kd-sefykjFuFS_D9jJfSWdb0",
-        "jichu": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamljaHUifQ.t3Oo7VBNryUBrcqiSgW-b-rrBgMbCKLGx79UcrdMeJQ",
-        "parth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicGFydGgifQ.AqQaZ5Ya1IhzNQlZQ9BRsx-dPhZH3VraIeDdfQeEA1U"
+        "testuser1": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIxIn0.wGd9EsWwvS175lf2anj2_HdJ_EO92SzoCEOZ_wmErVc",
+        "testuser2": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGVzdHVzZXIyIn0.hRPyJ8e8PRLSbm_I8b4Kd-sefykjFuFS_D9jJfSWdb0",
+//        "jichu": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiamljaHUifQ.t3Oo7VBNryUBrcqiSgW-b-rrBgMbCKLGx79UcrdMeJQ",
+//        "parth": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicGFydGgifQ.AqQaZ5Ya1IhzNQlZQ9BRsx-dPhZH3VraIeDdfQeEA1U"
     ]
     
     func setUp() {
